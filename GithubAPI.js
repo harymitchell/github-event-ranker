@@ -41,11 +41,7 @@ const GithubAPI = function(){
             },
         };
         
-        return rp(options)
-            .catch(function (err) {
-                console.error(err);
-                return err;
-            });
+        return rp(options);
     };
 };
 

@@ -22,6 +22,9 @@
 const GithubEventRanker = function(){
     const api = require('./GithubAPI.js');
     
+    /**
+     * Takes events as ipnut and ranks them
+     */
     this.rankEvents = function (events){
         if (events.length === 0){
             return 0;
@@ -52,11 +55,21 @@ const GithubEventRanker = function(){
         return Math.round(rank / events.length*100)/100;
     };
     
+    /** 
+     * Takes a username as input and ranks them.
+     */
     this.rankUser = function(username){
         const _this = this;
         return api.getUserEvents(username)
             .then(res => {
                 return _this.rankEvents(res);
+            }).catch(e => {
+                if (e.statusCode === 404){
+                    console.log('User not found!');
+                } else {
+                    console.error('Unknown error!');
+                    console.error(e);
+                }
             });
                 
     };
