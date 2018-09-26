@@ -13,10 +13,14 @@ For example, if there are 2 PushEvents and 1 PullRequestReviewCommentEvents and 
 >(4*2 + 3*1) / (2 + 1) = 3.67 (rounded to 2 decimal places)
 
 ## Install
->npm install
+```
+npm install
+```
 
 ## CLI Example Usage:
->node GithubEventRanker.js username=harymitchell
+```
+node GithubEventRanker.js username=harymitchell
+```
 
 ## API Usage:
 ```javascript
@@ -36,7 +40,9 @@ ranker.rankUser('harymitchell').then(res => console.log(res));
 - Located in the */tests* directory
 
 ### Running Tests
->npm test
+```
+npm test
+```
 
 ### GithubEventRanker Test Suite 
 - tests ranking function with static data
