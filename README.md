@@ -1,4 +1,5 @@
 # GithubEventRanker
+Usage of Github's User Events API using node.js.
 
 ## Requirements
 For a given username, pull down the data from Github API user events endpoint and perform a weighted average of events. 
