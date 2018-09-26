@@ -19,9 +19,11 @@ For example, if there are 2 PushEvents and 1 PullRequestReviewCommentEvents and 
 >node GithubEventRanker.js username=harymitchell
 
 ## API Usage:
->const GithubEventRanker = require('../GithubEventRanker.js');
->const ranker = new GithubEventRanker();
->ranker.rankUser('harymitchell').then(res => console.log(res));
+```javascript
+const GithubEventRanker = require('../GithubEventRanker.js');
+const ranker = new GithubEventRanker();
+ranker.rankUser('harymitchell').then(res => console.log(res));
+```
 
 ## GithubAPI.js
 - Module provides interface with the Github Public API http://api.github.com/
