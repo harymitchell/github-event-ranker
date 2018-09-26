@@ -1,0 +1,20 @@
+{
+  "name": "github-api-event-rank",
+  "version": "0.0.0",
+  "description": "Ranks user events from github.",
+  "main": "githubAPI.js",
+  "repository": "",
+  "dependencies": {
+    "args-parser": "^1.1.0",
+    "async": "~0.2.8",
+    "express": "~3.2.4",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
+}
