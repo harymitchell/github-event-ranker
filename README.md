@@ -9,8 +9,8 @@ Here are the weights:
 - ReleaseEvent = 2
 - everything else is 1
 
-For example, if there are 2 PushEvents and 1 PullRequestReviewCommentEvents and nothing else then the output should be:
->(4*2 + 3*1) / (2 + 1) = 3.67 (rounded to 2 decimal places)
+For example, if there are 2 PushEvents and 1 PullRequestReviewCommentEvents and nothing else then the output should be: 
+- (4*2 + 3*1) / (2 + 1) = 3.67 (rounded to 2 decimal places)
 
 ## Install
 ```
