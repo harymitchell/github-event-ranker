@@ -1,22 +1,53 @@
+# GithubEventRanker
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+## Requirements
+For a given username, pull down the data from Github API user events endpoint and perform a weighted average of events. 
 
+Here are the weights:
+- PushEvent = 4
+- PullRequestReviewCommentEvent = 3
+- ReleaseEvent = 2
+- everything else is 1
 
-Welcome to your Node.js project on Cloud9 IDE!
+For example, if there are 2 PushEvents and 1 PullRequestReviewCommentEvents and nothing else then the output should be:
+>(4*2 + 3*1) / (2 + 1) = 3.67 (rounded to 2 decimal places)
 
-This chat example showcases how to use `socket.io` with a static `express` server.
+## Install
+```
+npm install
+```
 
-## Running the server
+## CLI Example Usage:
+```
+node GithubEventRanker.js username=harymitchell
+```
 
-1) Open `server.js` and start the app by clicking on the "Run" button in the top menu.
+## API Usage:
+```javascript
+const GithubEventRanker = require('../GithubEventRanker.js');
+const ranker = new GithubEventRanker();
+ranker.rankUser('harymitchell').then(res => console.log(res));
+```
 
-2) Alternatively you can launch the app from the Terminal:
+## GithubAPI.js
+- Module provides interface with the Github Public API http://api.github.com/
 
-    $ node server.js
+## GithubEventRanker.js
+- Utilizes the GithubAPI module to rank the user provided in the --username= arg
 
-Once the server is running, open the project in the shape of 'https://projectname-username.c9users.io/'. As you enter your name, watch the Users list (on the left) update. Once you press Enter or Send, the message is shared with all connected clients.
+## Test Suite
+- Using the Mocha test framework https://mochajs.org/
+- Located in the */tests* directory
+
+### Running Tests
+```
+npm test
+```
+
+### GithubEventRanker Test Suite 
+- tests ranking function with static data
+- tests the entire module 
+
+### GithubAPI Test Suite  
+- tests retrieveing user events from Github API
+
