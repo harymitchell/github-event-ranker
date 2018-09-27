@@ -15,6 +15,8 @@ For example, if there are 2 PushEvents and 1 PullRequestReviewCommentEvents and 
 
 ## Install
 ```
+git clone https://github.com/harymitchell/github-event-ranker.git
+cd github-event-ranker
 npm install
 ```
 
@@ -30,10 +32,10 @@ const ranker = new GithubEventRanker();
 ranker.rankUser('harymitchell').then(res => console.log(res));
 ```
 
-## GithubAPI.js
+### GithubAPI.js
 - Module provides interface with the Github Public API http://api.github.com/
 
-## GithubEventRanker.js
+### GithubEventRanker.js
 - Utilizes the GithubAPI module to rank the user provided in the --username= arg
 
 ## Test Suite
